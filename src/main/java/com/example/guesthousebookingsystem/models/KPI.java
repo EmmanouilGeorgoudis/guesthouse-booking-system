@@ -1,4 +1,4 @@
-package com.example.guesthousebookingsystem.model;
+package com.example.guesthousebookingsystem.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
