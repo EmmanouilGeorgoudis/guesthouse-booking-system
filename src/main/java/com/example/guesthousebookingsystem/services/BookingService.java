@@ -1,4 +1,4 @@
-package com.example.guesthousebookingsystem.service;
+package com.example.guesthousebookingsystem.services;
 
 import com.example.guesthousebookingsystem.dto.BookingDTO;
 import com.example.guesthousebookingsystem.dto.RoomDTO;

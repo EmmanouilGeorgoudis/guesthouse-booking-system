@@ -1,4 +1,4 @@
-package com.example.guesthousebookingsystem.service;
+package com.example.guesthousebookingsystem.services;
 
 import com.example.guesthousebookingsystem.dto.CustomerDTO;
 import java.util.List;
