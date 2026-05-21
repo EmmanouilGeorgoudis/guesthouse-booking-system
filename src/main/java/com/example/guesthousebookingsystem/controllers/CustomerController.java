@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.guesthousebookingsystem.services.CustomerService;
-import com.example.guesthousebookingsystem.dto.CustomerDTO;
+import com.example.guesthousebookingsystem.dtos.CustomerDTO;
 
 @Controller
 @RequestMapping("/customers")

@@ -9,5 +9,3 @@ public class RoomDTO {
     private String name;
     private Long count;
 }
-
-
