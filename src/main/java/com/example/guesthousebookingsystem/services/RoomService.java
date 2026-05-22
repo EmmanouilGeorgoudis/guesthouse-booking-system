@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface RoomService {
     List<RoomDTO> getAllRooms();
-    RoomDTO getByRoom(Long id);
+    RoomDTO getById(Long id);
     void save(RoomDTO roomsDTO);
     void delete(Long id);
 }

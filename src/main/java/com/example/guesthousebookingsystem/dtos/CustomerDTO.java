@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class CustomerDTO {
     private String name;
-    private Long count;
+    private Long id;
 }
