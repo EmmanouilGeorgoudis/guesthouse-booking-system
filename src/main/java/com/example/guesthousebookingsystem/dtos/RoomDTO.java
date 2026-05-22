@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class RoomDTO {
     private String name;
-    private Long count;
+    private Long id;
 }
