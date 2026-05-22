@@ -1,10 +1,10 @@
-package com.example.guesthousebookingsystem.controller;
+package com.example.guesthousebookingsystem.controllers;
 
-import com.example.guesthousebookingsystem.dto.BookingDTO;
-import com.example.guesthousebookingsystem.dto.RoomDTO;
-import com.example.guesthousebookingsystem.service.BookingService;
-import com.example.guesthousebookingsystem.service.CustomerService;
-import com.example.guesthousebookingsystem.service.RoomService;
+import com.example.guesthousebookingsystem.dtos.BookingDTO;
+import com.example.guesthousebookingsystem.dtos.RoomDTO;
+import com.example.guesthousebookingsystem.services.BookingService;
+import com.example.guesthousebookingsystem.services.CustomerService;
+import com.example.guesthousebookingsystem.services.RoomService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

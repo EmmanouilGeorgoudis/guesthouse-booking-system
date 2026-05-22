@@ -1,6 +1,6 @@
-package com.example.guesthousebookingsystem.service;
+package com.example.guesthousebookingsystem.services;
 
-import com.example.guesthousebookingsystem.dto.CustomerDTO;
+import com.example.guesthousebookingsystem.dtos.CustomerDTO;
 import java.util.List;
 
 public interface CustomerService {

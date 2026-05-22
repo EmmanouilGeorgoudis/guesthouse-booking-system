@@ -1,7 +1,7 @@
-package com.example.guesthousebookingsystem.controller;
+package com.example.guesthousebookingsystem.controllers;
 
-import com.example.guesthousebookingsystem.dto.RoomDTO;
-import com.example.guesthousebookingsystem.service.RoomService;
+import com.example.guesthousebookingsystem.dtos.RoomDTO;
+import com.example.guesthousebookingsystem.services.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;

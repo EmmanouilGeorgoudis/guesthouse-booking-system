@@ -1,7 +1,7 @@
-package com.example.guesthousebookingsystem.service;
+package com.example.guesthousebookingsystem.services;
 
-import com.example.guesthousebookingsystem.dto.BookingDTO;
-import com.example.guesthousebookingsystem.dto.RoomDTO;
+import com.example.guesthousebookingsystem.dtos.BookingDTO;
+import com.example.guesthousebookingsystem.dtos.RoomDTO;
 import java.time.LocalDate;
 import java.util.List;
 
