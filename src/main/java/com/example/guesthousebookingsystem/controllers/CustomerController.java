@@ -7,13 +7,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.guesthousebookingsystem.services.CustomerService;
 import com.example.guesthousebookingsystem.dtos.CustomerDTO;
 
-@Controller
+@RestController
 @RequestMapping("/customers")
 public class CustomerController {
 
     private final CustomerService customerService;
 
-    public CustomerController(CustomerService customerService) {
+    CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
 
