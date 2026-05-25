@@ -4,7 +4,7 @@ import com.example.guesthousebookingsystem.dtos.CustomerDTO;
 import com.example.guesthousebookingsystem.models.Customer;
 import com.example.guesthousebookingsystem.repositories.BookingRepository;
 import com.example.guesthousebookingsystem.repositories.CustomerRepository;
-import com.example.guesthousebookingsystem.services.CustomerServiceImpl;
+import com.example.guesthousebookingsystem.services.impl.CustomerServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

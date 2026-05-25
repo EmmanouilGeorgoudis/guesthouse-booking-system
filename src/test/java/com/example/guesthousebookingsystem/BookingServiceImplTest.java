@@ -9,7 +9,7 @@ import com.example.guesthousebookingsystem.models.RoomType;
 import com.example.guesthousebookingsystem.repositories.BookingRepository;
 import com.example.guesthousebookingsystem.repositories.CustomerRepository;
 import com.example.guesthousebookingsystem.repositories.RoomRepository;
-import com.example.guesthousebookingsystem.services.BookingServiceImpl;
+import com.example.guesthousebookingsystem.services.impl.BookingServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

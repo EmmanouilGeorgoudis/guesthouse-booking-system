@@ -1,8 +1,9 @@
-package com.example.guesthousebookingsystem.services;
+package com.example.guesthousebookingsystem.services.impl;
 
 import com.example.guesthousebookingsystem.dtos.RoomDTO;
 import com.example.guesthousebookingsystem.models.Room;
 import com.example.guesthousebookingsystem.repositories.RoomRepository;
+import com.example.guesthousebookingsystem.services.RoomService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

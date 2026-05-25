@@ -4,7 +4,7 @@ import com.example.guesthousebookingsystem.dtos.RoomDTO;
 import com.example.guesthousebookingsystem.models.Room;
 import com.example.guesthousebookingsystem.models.RoomType;
 import com.example.guesthousebookingsystem.repositories.RoomRepository;
-import com.example.guesthousebookingsystem.services.RoomServiceImpl;
+import com.example.guesthousebookingsystem.services.impl.RoomServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
