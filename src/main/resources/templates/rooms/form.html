@@ -16,13 +16,16 @@
         <option value="DOUBLE">Double room</option>
     </select>
     <br/>
-    <label>Extra beds:</label>
-    <select th:field="*{extraBeds}">
-        <option value="0">None</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-    </select>
-    <br/>
+
+    <div th:if="${room.roomType == null or room.roomType.toString() != 'SINGLE'}">
+        <label>Extra beds:</label>
+        <select th:field="*{extraBeds}">
+            <option value="0">None</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <br/>
+    </div>
 
     <button type="submit">Save</button>
 </form>

@@ -42,11 +42,21 @@ public class RoomServiceImpl implements RoomService {
         room.setId(roomDTO.getId());
         room.setName(roomDTO.getName());
         room.setRoomType(roomDTO.getRoomType());
-        room.setExtraBeds(roomDTO.getExtraBeds());
+
+        if ("SINGLE".equals(String.valueOf(roomDTO.getRoomType()))) {
+            room.setExtraBeds(0);
+        } else {
+            room.setExtraBeds(roomDTO.getExtraBeds());
+        }
         roomRepository.save(room);
     }
 
+/*
+    I save(...) sätts värdet rakt av: room.setExtraBeds(roomDTO.getExtraBeds()); (rad 45).
+            ◦
+    Här bör du lägga affärsregeln, t.ex. om roomType == SINGLE så sätt extraBeds = 0 eller kasta valideringsfel.
 
+*/
     @Override
     public void delete(Long id) {
         roomRepository.deleteById(id);
