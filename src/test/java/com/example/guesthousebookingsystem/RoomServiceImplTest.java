@@ -2,6 +2,7 @@ package com.example.guesthousebookingsystem;
 
 import com.example.guesthousebookingsystem.dtos.RoomDTO;
 import com.example.guesthousebookingsystem.models.Room;
+import com.example.guesthousebookingsystem.models.RoomType;
 import com.example.guesthousebookingsystem.repositories.RoomRepository;
 import com.example.guesthousebookingsystem.services.RoomServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -57,11 +58,17 @@ public class RoomServiceImplTest {
 
     @Test
     void save_shouldSaveRoom() {
-        RoomDTO roomDTO = new RoomDTO("101", null);
-
+        RoomDTO roomDTO = new RoomDTO();
+        roomDTO.setName("101");
+        roomDTO.setRoomType(RoomType.SINGLE);
+        roomDTO.setExtraBeds(0);
         roomService.save(roomDTO);
 
-        verify(roomRepository).save(new Room("101"));
+        Room expectedRoom = new Room();
+        expectedRoom.setName("101");
+        expectedRoom.setRoomType(RoomType.SINGLE);
+        expectedRoom.setExtraBeds(0);
+        verify(roomRepository).save(expectedRoom);
     }
 
     @Test

@@ -1,8 +1,6 @@
 package com.example.guesthousebookingsystem.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,6 +18,17 @@ public class Room {
     private Long id;
     @NotBlank
     private String name;
+
+
+    @Enumerated(EnumType.STRING)
+    private RoomType roomType;
+
+    private int extraBeds; // 0, 1, 2
+
+    public int getMaxCapacity() {
+        int base = (roomType == RoomType.SINGLE) ? 1 : 2;
+        return base + extraBeds;
+    }
 
 
     public Room(String name) {
