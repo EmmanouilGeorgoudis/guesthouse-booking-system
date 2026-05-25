@@ -30,8 +30,13 @@ public class CustomerController {
     }
 
     @PostMapping("/save/")
-    public String saveCustomer(@ModelAttribute CustomerDTO customerDTO) {
-        customerService.save(customerDTO);
+    public String saveCustomer(@ModelAttribute CustomerDTO customerDTO, RedirectAttributes redirectAttributes) {
+        try {
+            customerService.save(customerDTO);
+            redirectAttributes.addFlashAttribute("successMessage", "Customer was saved!");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Could not save customer!");
+        }
         return "redirect:/customers";
     }
 
