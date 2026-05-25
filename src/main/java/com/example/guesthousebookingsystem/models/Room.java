@@ -25,6 +25,9 @@ public class Room {
 
     private int extraBeds; // 0, 1, 2
 
+    public Room(String a1, RoomType roomType) {
+    }
+
     public int getMaxCapacity() {
         int base = (roomType == RoomType.SINGLE) ? 1 : 2;
         return base + extraBeds;

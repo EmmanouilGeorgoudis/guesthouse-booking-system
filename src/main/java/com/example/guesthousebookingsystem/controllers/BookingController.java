@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class BookingController {
         this.roomService = roomService;
         this.customerService = customerService;
     }
+
 
     @GetMapping
     public String listBookings(Model model) {
@@ -44,8 +46,9 @@ public class BookingController {
     public String showAvailableRooms(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut,
+            @RequestParam int numberOfPeople,
             Model model) {
-        List<RoomDTO> availableRooms = bookingService.getAvailableRooms(checkIn, checkOut);
+        List<RoomDTO> availableRooms = bookingService.getAvailableRooms(checkIn, checkOut, numberOfPeople);
         model.addAttribute("booking", new BookingDTO());
         model.addAttribute("customers", customerService.getAllCustomers());
         model.addAttribute("availableRooms", availableRooms);
@@ -64,6 +67,7 @@ public class BookingController {
         }
         return "redirect:/bookings";
     }
+
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {

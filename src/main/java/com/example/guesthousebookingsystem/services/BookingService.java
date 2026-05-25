@@ -10,5 +10,5 @@ public interface BookingService {
     BookingDTO getById(Long id);
     void save(BookingDTO bookingDTO);
     void delete(Long id);
-    List<RoomDTO> getAvailableRooms(LocalDate checkIn, LocalDate checkOut);
+    List<RoomDTO> getAvailableRooms(LocalDate checkIn, LocalDate checkOut, int numberOfPeople);
 }

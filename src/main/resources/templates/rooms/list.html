@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head><title>Room</title></head>
+
 <body>
 <nav>
     <a th:href="@{/}">Home</a> |
@@ -17,10 +18,14 @@
 <table border="1">
     <tr>
         <th>Room</th>
+        <th>Typ</th>
+        <th>Max personer</th>
         <th>Handle room</th>
     </tr>
     <tr th:each="room : ${rooms}">
         <td th:text="${room.name}"></td>
+        <td th:text="${room.roomType != null and room.roomType.name() == 'SINGLE'} ? 'Single room' : 'Double room'"></td>
+        <td th:text="${room.maxCapacity}"></td>
         <td>
             <a th:href="@{/rooms/edit/{id}(id=${room.id})}">Edit</a>
             <form th:action="@{/rooms/delete/{id}(id=${room.id})}" method="post" style="display:inline;">
