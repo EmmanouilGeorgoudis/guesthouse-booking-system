@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,12 +22,16 @@ public class Booking {
     @GeneratedValue
     private Long id;
 
+    @NotNull(message="Checkin date required")
     private LocalDate checkIn;
+    @NotNull(message="Checkout date required")
     private LocalDate checkOut;
 
+    @NotNull
     @ManyToOne
     private Customer customer;
 
+    @NotNull
     @ManyToOne
     private Room room;
 
