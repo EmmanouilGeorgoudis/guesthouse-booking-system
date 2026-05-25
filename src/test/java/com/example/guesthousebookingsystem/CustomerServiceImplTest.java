@@ -2,6 +2,7 @@ package com.example.guesthousebookingsystem;
 
 import com.example.guesthousebookingsystem.dtos.CustomerDTO;
 import com.example.guesthousebookingsystem.models.Customer;
+import com.example.guesthousebookingsystem.repositories.BookingRepository;
 import com.example.guesthousebookingsystem.repositories.CustomerRepository;
 import com.example.guesthousebookingsystem.services.CustomerServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,9 @@ public class CustomerServiceImplTest {
 
     @Mock
     CustomerRepository customerRepository;
+
+    @Mock
+    BookingRepository bookingRepository;
 
     @InjectMocks
     CustomerServiceImpl customerService;
@@ -65,7 +69,7 @@ public class CustomerServiceImplTest {
 
     @Test
     void delete_shouldDeleteCustomer_whenNoBookingsExist() {
-        when(customerRepository.existsByBookingsCustomerId(1L)).thenReturn(false);
+        when(bookingRepository.existsByCustomerId(1L)).thenReturn(false);
 
         customerService.delete(1L);
 
@@ -74,7 +78,7 @@ public class CustomerServiceImplTest {
 
     @Test
     void delete_shouldThrowException_whenCustomerHasBookings() {
-        when(customerRepository.existsByBookingsCustomerId(1L)).thenReturn(true);
+        when(bookingRepository.existsByCustomerId(1L)).thenReturn(true);
 
         assertThrows(RuntimeException.class, () -> customerService.delete(1L));
 
