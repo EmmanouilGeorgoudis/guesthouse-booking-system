@@ -10,6 +10,9 @@ import java.util.List;
 
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
+    boolean existsByCustomerId(Long customerId);
+
+
     @Query("SELECT CASE WHEN COUNT(b) > 0 THEN true ELSE false END FROM Booking b " +
             "WHERE b.room.id = :roomId " +
             "AND b.checkIn < :checkOut " +

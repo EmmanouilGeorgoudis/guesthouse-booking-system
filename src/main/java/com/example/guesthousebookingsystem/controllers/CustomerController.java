@@ -7,7 +7,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.guesthousebookingsystem.services.CustomerService;
 import com.example.guesthousebookingsystem.dtos.CustomerDTO;
 
-@RestController
+@Controller
 @RequestMapping("/customers")
 public class CustomerController {
 
@@ -29,10 +29,9 @@ public class CustomerController {
         return "customers/form";
     }
 
-    @PostMapping("/save")
-    public String saveCustomer(@ModelAttribute CustomerDTO customerDTO, RedirectAttributes redirectAttributes) {
+    @PostMapping("/save/")
+    public String saveCustomer(@ModelAttribute CustomerDTO customerDTO) {
         customerService.save(customerDTO);
-        redirectAttributes.addFlashAttribute("successMessage", "Kunden sparades!");
         return "redirect:/customers";
     }
 
