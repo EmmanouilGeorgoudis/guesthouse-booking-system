@@ -64,13 +64,13 @@ public class BookingServiceImpl implements BookingService {
 
 
         Booking booking = new Booking();
-        booking.setId(bookingDTO.getId());       // null if new, set if editing
+        booking.setId(bookingDTO.getId());
         booking.setCheckIn(bookingDTO.getCheckIn());
         booking.setCheckOut(bookingDTO.getCheckOut());
         booking.setCustomer(customer);
         booking.setRoom(room);
 
-        bookingRepository.save(booking);          // save handles both create and update
+        bookingRepository.save(booking);
     }
 
     @Override
@@ -84,7 +84,8 @@ public class BookingServiceImpl implements BookingService {
         return roomRepository.findAll()
                 .stream()
                 .filter(r -> !bookedRoomIds.contains(r.getId()))
-                .map(r -> new RoomDTO(r.getName(), r.getId()))
+                .map(r -> new RoomDTO(r.getName(), r.getId(), r.getRoomType(),
+                        r.getExtraBeds(), r.getMaxCapacity()))
                 .toList();
     }
 }

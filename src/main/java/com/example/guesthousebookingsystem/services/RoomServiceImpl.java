@@ -20,7 +20,8 @@ public class RoomServiceImpl implements RoomService {
     public List<RoomDTO> getAllRooms() {
         return roomRepository.findAll()
                 .stream()
-                .map(r -> new RoomDTO(r.getName(), r.getId()))
+                .map(r -> new RoomDTO(r.getName(), r.getId(), r.getRoomType(),
+                        r.getExtraBeds(), r.getMaxCapacity()))
                 .toList();
     }
 
@@ -28,16 +29,22 @@ public class RoomServiceImpl implements RoomService {
     public RoomDTO getById(Long id) {
         Room room = roomRepository.findById(id)
                 .orElseThrow();
-        return new RoomDTO(room.getName(), room.getId());
+        return new RoomDTO(room.getName(), room.getId(), room.getRoomType(),
+                room.getExtraBeds(), room.getMaxCapacity());
 
 
     }
 
     @Override
     public void save(RoomDTO roomDTO) {
-        Room room = new Room(roomDTO.getName());
+        Room room = new Room();
+        room.setId(roomDTO.getId());
+        room.setName(roomDTO.getName());
+        room.setRoomType(roomDTO.getRoomType());
+        room.setExtraBeds(roomDTO.getExtraBeds());
         roomRepository.save(room);
     }
+
 
     @Override
     public void delete(Long id) {
