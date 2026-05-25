@@ -5,6 +5,7 @@ import com.example.guesthousebookingsystem.dtos.RoomDTO;
 import com.example.guesthousebookingsystem.models.Booking;
 import com.example.guesthousebookingsystem.models.Customer;
 import com.example.guesthousebookingsystem.models.Room;
+import com.example.guesthousebookingsystem.models.RoomType;
 import com.example.guesthousebookingsystem.repositories.BookingRepository;
 import com.example.guesthousebookingsystem.repositories.CustomerRepository;
 import com.example.guesthousebookingsystem.repositories.RoomRepository;
@@ -128,15 +129,21 @@ public class BookingServiceImplTest {
     void getAvailableRooms_shouldReturnOnlyAvailableRooms() {
         Room room1 = new Room("101");
         room1.setId(1L);
+        room1.setRoomType(RoomType.SINGLE);
+        room1.setExtraBeds(0);
+
         Room room2 = new Room("102");
         room2.setId(2L);
+        room2.setRoomType(RoomType.DOUBLE);
+        room2.setExtraBeds(2);
 
         when(roomRepository.findAll()).thenReturn(List.of(room1, room2));
         when(bookingRepository.findBookedRoomIds(any(), any())).thenReturn(List.of(1L));
 
         List<RoomDTO> result = bookingService.getAvailableRooms(
                 LocalDate.of(2026, 6, 1),
-                LocalDate.of(2026, 6, 5));
+                LocalDate.of(2026, 6, 5),
+                2);
 
         assertEquals(1, result.size());
         assertEquals("102", result.get(0).getName());

@@ -79,13 +79,13 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public List<RoomDTO> getAvailableRooms(LocalDate checkIn, LocalDate checkOut) {
+    public List<RoomDTO> getAvailableRooms(LocalDate checkIn, LocalDate checkOut, int numberOfPeople) {
         List<Long> bookedRoomIds = bookingRepository.findBookedRoomIds(checkIn, checkOut);
         return roomRepository.findAll()
                 .stream()
                 .filter(r -> !bookedRoomIds.contains(r.getId()))
-                .map(r -> new RoomDTO(r.getName(), r.getId(), r.getRoomType(),
-                        r.getExtraBeds(), r.getMaxCapacity()))
+                .filter(r -> r.getMaxCapacity() >= numberOfPeople)
+                .map(r -> new RoomDTO(r.getName(), r.getId(), r.getRoomType(), r.getExtraBeds(), r.getMaxCapacity()))
                 .toList();
     }
-}
+    }

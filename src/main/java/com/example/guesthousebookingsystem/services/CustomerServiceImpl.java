@@ -40,13 +40,14 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void save(CustomerDTO customerDTO) {
         Customer customer = new Customer(customerDTO.getName());
+        customer.setId(customerDTO.getId());
         customerRepository.save(customer);
 
     }
     @Override
     public void delete(Long id) {
         if (bookingRepository.existsByCustomerId(id)) {
-            throw new RuntimeException("Kan inte ta bort kund med aktiva bokningar!");
+            throw new RuntimeException("Can't remove customers with active bookings!");
         }
         customerRepository.deleteById(id);
     }
