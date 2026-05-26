@@ -23,9 +23,11 @@ public class Room {
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
 
-    private int extraBeds; // 0, 1, 2
+    private int extraBeds;
 
-    public Room(String a1, RoomType roomType) {
+    public Room(String name, RoomType roomType) {
+        this.name = name;
+        this.roomType = roomType;
     }
 
     public int getMaxCapacity() {
